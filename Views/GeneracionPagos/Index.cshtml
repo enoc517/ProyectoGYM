@@ -1,0 +1,71 @@
+﻿@model IEnumerable<ProyectoGYM.Models.GeneracionPago>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DescripcionPago)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TipoPago)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SalarioBruto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EstadoDelPago)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Feriados)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HorasExtras)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdjornadasNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DescripcionPago)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TipoPago)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SalarioBruto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EstadoDelPago)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Feriados)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HorasExtras)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdjornadasNavigation.Idjornadas)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdgeneracionPago">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IdgeneracionPago">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdgeneracionPago">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,65 @@
+﻿@model IEnumerable<ProyectoGYM.Models.Pedido>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Estado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaCompra)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaRecibido)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cantidad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdempleadoNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdprovedoresNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Estado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaCompra)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaRecibido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cantidad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdempleadoNavigation.Apellidos)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdprovedoresNavigation.CorreoElectronico)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Idpedido">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Idpedido">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Idpedido">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
